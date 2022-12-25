@@ -49,6 +49,7 @@ $RECYCLE.BIN/
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+.idea/
 
 # Generated files
 .idea/**/contentModel.xml
@@ -115,6 +116,7 @@ fabric.properties
 ### Python template
 # Byte-compiled / optimized / DLL files
 __pycache__/
+**/__pycache__
 *.py[cod]
 *$py.class
 
@@ -249,4 +251,6 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+.pyc
 

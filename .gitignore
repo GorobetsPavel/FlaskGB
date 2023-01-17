@@ -253,4 +253,5 @@ dmypy.json
 cython_debug/
 
 .pyc
+blog.db
 

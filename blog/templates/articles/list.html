@@ -14,6 +14,7 @@ Articles list
                 <a href="{{ url_for('articles_app.details', article_id=article.id) }}">{{
                     article.title }}</a>
                 by {{ article.author.user.username }}
+                <a href="{{ url_for('articles_app.delete', article_id=article.id) }}"> Удалить </a>
             </li>
             {% endfor %}
         {% else %}

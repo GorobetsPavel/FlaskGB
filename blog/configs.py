@@ -14,6 +14,7 @@ class DevConfig(BaseConfig):
     file_path = os.path.abspath(os.getcwd()) + "/blog.db"
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + file_path
+    FLASK_ADMIN_SWATCH = 'cosmo'
 
 
 class TestingConfig(BaseConfig):

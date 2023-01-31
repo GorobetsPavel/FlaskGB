@@ -8,6 +8,7 @@ from blog.views.authors import authors_app
 from blog.models.database import db
 from blog.security import flask_bcrypt
 from blog.admin import admin
+from blog.api import init_api
 from flask_migrate import Migrate
 
 cfg_name = "DevConfig"
@@ -25,6 +26,8 @@ flask_bcrypt.init_app(app)
 db.init_app(app)
 login_manager.init_app(app)
 admin.init_app(app)
+init_api(app)
+
 
 migrate = Migrate(app, db, compare_type=True)
 

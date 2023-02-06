@@ -25,16 +25,16 @@ class ArticlePermission(PermissionMixin):
     ]
 
     def patch_permission(self, *args, user_permission: PermissionUser = None, **kwargs) -> PermissionForPatch:
-        if not current_user.is_authenticated:
-            raise AccessDenied("no access")
-        if not current_user.is_staff:
-            raise AccessDenied("no access")
-
         self.permission_for_patch.allow_columns = (self.PATCH_AVAILABLE_FIELDS, 10)
         return self.permission_for_patch
 
     def patch_data(self, *args, data: dict = None, obj: Article = None, user_permission: PermissionUser = None,
                    **kwargs) -> dict:
+        if not current_user.is_authenticated:
+            raise AccessDenied("No access. You must be authenticated.")
+        if not (current_user.is_staff or current_user.author == obj.author):
+            raise AccessDenied("No access. To edit the data you must be the author of this article.")
+
         permission_for_patch = user_permission.permission_for_patch_permission(model=Article)
 
         return {
